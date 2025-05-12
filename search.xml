@@ -8,7 +8,7 @@
       <link href="/2025/05/12/Jmeter/"/>
       <url>/2025/05/12/Jmeter/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h1><p>Apache JMeter 是一款开源的性能测试工具，主要用于测试 Web 应用程序的性能和负载能力。它最初由 Apache Software Foundation 开发，用于测试 Web 应用程序。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h1><p>Apache JMeter 是一款开源的性能测试工具，主要用于测试 Web 应用程序的性能和负载能力。它最初由 Apache Software Foundation 开发，用于测试 Web 应用程序。</p><h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>1、开源免费     2、跨平台<br>3、支持多协议   4、小巧</p><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>1、不支持IP欺骗<br>2、使用Jmeter无法验证JS程序，也也无法验证页面UI，要和Selenuim配合来完成Web测试</p>]]></content>
       
       
       <categories>
