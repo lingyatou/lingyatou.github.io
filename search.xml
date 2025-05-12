@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Test_Base</title>
+      <link href="/2025/05/12/Test-Base/"/>
+      <url>/2025/05/12/Test-Base/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="什么是软件测试"><a href="#什么是软件测试" class="headerlink" title="什么是软件测试"></a>什么是软件测试</h1><p>使用<strong>技术手段</strong> 验证软件是否符合<strong>需求</strong></p><h1 id="测试主流技能"><a href="#测试主流技能" class="headerlink" title="测试主流技能"></a>测试主流技能</h1><p>功能测试、自动化测试、接口测试、性能测试</p><h1 id="常见测试分类"><a href="#常见测试分类" class="headerlink" title="常见测试分类"></a>常见测试分类</h1><h2 id="按测试阶段划分"><a href="#按测试阶段划分" class="headerlink" title="按测试阶段划分"></a>按测试阶段划分</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">单元测试 #针对源代码进行测试</span><br><span class="line">集成测试 #又称接口测试，针对模块间访问地址进行测试</span><br><span class="line">系统测试 #对整个系统包括功能、兼容、文档等进行测试</span><br><span class="line">验收测试 #主要分为内测、公测，使用不同人群来发现项目缺陷</span><br></pre></td></tr></table></figure><h2 id="按代码可见度划分"><a href="#按代码可见度划分" class="headerlink" title="按代码可见度划分"></a>按代码可见度划分</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">黑盒测试 #看不见源代码，主要对程序功能进行测试</span><br><span class="line">灰盒测试 #看见部分代码，主要对程序接口进行测试</span><br><span class="line">白盒测试 #看见全部源代码，主要对程序源代码进行测试</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1、系统测试和黑盒测试重点是<strong>功能测试</strong><br>2、集成测试和灰盒测试又称<strong>接口测试</strong><br>3、单元测试和白盒测试对<strong>代码</strong>进行测试<br>4、自动化测试归属于<strong>功能测试</strong><br>5、性能测试、安全测试归属于<strong>专项测试</strong></p><h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><h2 id="质量模型"><a href="#质量模型" class="headerlink" title="质量模型"></a>质量模型</h2><p><img src="/img/post/test_base_1.png" alt="质量模型" style="zoom:100%;" /></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">功能性 #功能满足需求</span><br><span class="line">性能效率 #性能满足需求</span><br><span class="line">兼容性 #软件能与主流软硬件兼容</span><br><span class="line">易用性 #便于使用</span><br><span class="line">可靠性 #性能和功能应用可靠</span><br><span class="line">信息安全 #信息在存储和传输过程中的安全程度</span><br><span class="line">可维护性 #便于维护</span><br><span class="line">可移植性 #具备迁移和便捷性</span><br></pre></td></tr></table></figure><h2 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h2><p><img src="/img/post/test_base_2.png" alt="W模型" style="zoom:50%;" /></p><p>蓝色为开发，绿色为测试</p><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>测试伴随整个产品开发周期，测试对象不仅仅是程序，还有需求、设计文档，<br>测试介入较早，及早发现问题，降低修复成本</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>实时复杂难度大，对于需求阶段和设计阶段的测试设计要求较高</p><h1 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h1><p><img src="/img/post/test_base_3.png" alt="测试流程" style="zoom:50%;" /></p><h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>执行测试的文档（测试用户使用的案例）<br>考虑点（质量模型）： 功能。性能。兼容。应用。安全</p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>·防止漏测<br>·实施测试的标准</p><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>用例编号         项目+模块+编号<br>标题             预期结果+操作步骤<br>模块             所属项目或模块<br>优先级<br>前置条件         要执行此用例需要用到的前置操作<br>测试步骤         描述操作步骤<br>测试数据         操作的数据，没有可以为空<br>预期结果         期望达到的结果<br>实际结果         执行用例后的结果</p><h2 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h2><h3 id="等价类法"><a href="#等价类法" class="headerlink" title="等价类法"></a>等价类法</h3><p>需要有大量数据测试输入，但是没办法穷举测试的情景中。<br>可以划分为有效和无效范围时，如年龄输入框（有效范围：18-60岁）、只接受数字的输入框、需要特定格式的数据等测试可以用等价类法，有效等价类和无效等价类各取一个即可（一般是一种有效等价类和多种无效等价类）。</p><h4 id="有效等价类"><a href="#有效等价类" class="headerlink" title="有效等价类"></a>有效等价类</h4><p>·满足需求的数据集合</p><h4 id="无效等价类"><a href="#无效等价类" class="headerlink" title="无效等价类"></a>无效等价类</h4><p>·不满足需求的数据集合</p><h3 id="边界值分析法"><a href="#边界值分析法" class="headerlink" title="边界值分析法"></a>边界值分析法</h3><p><strong>等价类</strong>基础上针对边界范围的测试数据输入的地方（重点关注边界）<br>典型：有边界范围的输入框类测试</p><p><img src="/img/post/test_base_4.png" alt="边界值法用例" style="zoom:50%;" /></p><h4 id="关键点-上点"><a href="#关键点-上点" class="headerlink" title="关键点-上点"></a>关键点-上点</h4><p>边界上的点（正好等于）</p><h4 id="关键点-离点"><a href="#关键点-离点" class="headerlink" title="关键点-离点"></a>关键点-离点</h4><p>距离上点最近的点（刚好大于，刚好小于）</p><h4 id="关键点-内点"><a href="#关键点-内点" class="headerlink" title="关键点-内点"></a>关键点-内点</h4><p>范围内的点（区间范围内的数据）</p><h3 id="判定表法"><a href="#判定表法" class="headerlink" title="判定表法"></a>判定表法</h3><h3 id="场景法"><a href="#场景法" class="headerlink" title="场景法"></a>场景法</h3><h3 id="错误推测法"><a href="#错误推测法" class="headerlink" title="错误推测法"></a>错误推测法</h3><h2 id="冒烟测试和回归测试"><a href="#冒烟测试和回归测试" class="headerlink" title="冒烟测试和回归测试"></a>冒烟测试和回归测试</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jmeter</title>
       <link href="/2025/05/12/Jmeter/"/>
       <url>/2025/05/12/Jmeter/</url>
