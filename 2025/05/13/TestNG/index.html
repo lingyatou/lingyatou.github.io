@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TestNG | Pisland</title><meta name="author" content="源Syuan"><meta name="copyright" content="源Syuan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java自动化测试框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TestNG">
+<meta property="og:url" content="http://blog.pardofelis.icu/2025/05/13/TestNG/index.html">
+<meta property="og:site_name" content="Pisland">
+<meta property="og:description" content="Java自动化测试框架">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.pardofelis.icu/img/avatar.jpg">
+<meta property="article:published_time" content="2025-05-13T15:34:07.000Z">
+<meta property="article:modified_time" content="2025-05-13T16:27:56.144Z">
+<meta property="article:author" content="源Syuan">
+<meta property="article:tag" content="测试">
+<meta property="article:tag" content="框架">
+<meta property="article:tag" content="TestNG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.pardofelis.icu/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TestNG",
+  "url": "http://blog.pardofelis.icu/2025/05/13/TestNG/",
+  "image": "http://blog.pardofelis.icu/img/avatar.jpg",
+  "datePublished": "2025-05-13T15:34:07.000Z",
+  "dateModified": "2025-05-13T16:27:56.144Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "源Syuan",
+      "url": "http://blog.pardofelis.icu/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://blog.pardofelis.icu/2025/05/13/TestNG/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TestNG',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/readPercent.css"><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><span id="fps"></span><div id="myscoll"></div><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background: [object Object];"><style>#web_bg{
+  background: url('/img/win_dark.jpg') !important;
+  background-attachment: local!important;
+  background-position: center!important;
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+}
+[data-theme="dark"]
+  #web_bg{
+    background: url('/img/win_bai.jpg') !important;
+    background-attachment: local!important;
+    background-position: center!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+  }</style></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-microchip"></i><span> Bot</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/plugins/"><i class="fa-fw fa-solid fa-code"></i><span> 插件</span></a></li><li><a class="site-page child" href="/deploy/"><i class="fa-fw fa-solid fa-terminal"></i><span> 部署</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Pisland</span></a><a class="nav-page-title" href="/"><span class="site-name">TestNG</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-microchip"></i><span> Bot</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/plugins/"><i class="fa-fw fa-solid fa-code"></i><span> 插件</span></a></li><li><a class="site-page child" href="/deploy/"><i class="fa-fw fa-solid fa-terminal"></i><span> 部署</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">TestNG</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-13T15:34:07.000Z" title="发表于 2025-05-13 23:34:07">2025-05-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-13T16:27:56.144Z" title="更新于 2025-05-14 00:27:56">2025-05-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="什么是TestNG"><a href="#什么是TestNG" class="headerlink" title="什么是TestNG"></a>什么是TestNG</h2><p>TestNG 是一个受 JUnit 和 NUnit 启发的测试框架，但引入了许多新功能，使其更强大且更易于使用。它被设计用于单元测试、集成测试和端到端测试。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="单个用例"><a href="#单个用例" class="headerlink" title="单个用例"></a>单个用例</h3><p>单个用例情况下，选中并右键点击被<code>@Test</code>注解的函数,Run As -&gt;TestNG Test</p>
+<h3 id="单个类的用例"><a href="#单个类的用例" class="headerlink" title="单个类的用例"></a>单个类的用例</h3><p>未选中任何函数情况下，于要运行的类空白处右键，Run As -&gt;TestNG Test，会执行该类下所有的@Test注解函数用例</p>
+<h3 id="TestNG-注解详解"><a href="#TestNG-注解详解" class="headerlink" title="TestNG 注解详解"></a>TestNG 注解详解</h3><p>TestNG 提供了丰富的注解来支持各种测试场景，下面将分类详细介绍这些注解及其用途。</p>
+<hr>
+<h4 id="核心测试注解"><a href="#核心测试注解" class="headerlink" title="核心测试注解"></a>核心测试注解</h4><h5 id="Test"><a href="#Test" class="headerlink" title="@Test"></a><code>@Test</code></h5><p>标记一个方法为测试方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 测试代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>常用属性：</strong></p>
+<ul>
+<li><code>enabled</code>: 是否启用该测试（默认 <code>true</code>）</li>
+<li><code>groups</code>: 测试所属分组</li>
+<li><code>dependsOnMethods</code>: 依赖的其他测试方法</li>
+<li><code>priority</code>: 测试优先级（数值越小优先级越高）</li>
+<li><code>timeOut</code>: 超时时间（毫秒）</li>
+<li><code>expectedExceptions</code>: 期望抛出的异常</li>
+<li><code>invocationCount</code>: 调用次数</li>
+<li><code>successPercentage</code>: 成功百分比</li>
+<li><code>dataProvider</code>: 关联的数据提供者</li>
+<li><code>alwaysRun</code>: 是否总是运行（即使依赖的方法失败）</li>
+</ul>
+<hr>
+<h4 id="配置方法注解（生命周期钩子）"><a href="#配置方法注解（生命周期钩子）" class="headerlink" title="配置方法注解（生命周期钩子）"></a>配置方法注解（生命周期钩子）</h4><h5 id="BeforeSuite-AfterSuite"><a href="#BeforeSuite-AfterSuite" class="headerlink" title="@BeforeSuite / @AfterSuite"></a><code>@BeforeSuite</code> / <code>@AfterSuite</code></h5><ul>
+<li><code>@BeforeSuite</code>: 在当前测试套件所有测试执行之前运行</li>
+<li><code>@AfterSuite</code>: 在当前测试套件所有测试执行之后运行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeSuite</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeSuite</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Before Suite&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterSuite</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterSuite</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;After Suite&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="BeforeTest-AfterTest"><a href="#BeforeTest-AfterTest" class="headerlink" title="@BeforeTest / @AfterTest"></a><code>@BeforeTest</code> / <code>@AfterTest</code></h5><ul>
+<li><code>@BeforeTest</code>: 在 <code>&lt;test&gt;</code> 标签内的所有测试方法之前执行</li>
+<li><code>@AfterTest</code>: 在 <code>&lt;test&gt;</code> 标签内的所有测试方法之后执行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeTest</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Before Test&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterTest</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;After Test&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="BeforeClass-AfterClass"><a href="#BeforeClass-AfterClass" class="headerlink" title="@BeforeClass / @AfterClass"></a><code>@BeforeClass</code> / <code>@AfterClass</code></h5><ul>
+<li><code>@BeforeClass</code>: 在当前类的第一个测试方法之前执行</li>
+<li><code>@AfterClass</code>: 在当前类的所有测试方法之后执行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeClass</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeClass</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Before Class&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterClass</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterClass</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;After Class&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="BeforeMethod-AfterMethod"><a href="#BeforeMethod-AfterMethod" class="headerlink" title="@BeforeMethod / @AfterMethod"></a><code>@BeforeMethod</code> / <code>@AfterMethod</code></h5><ul>
+<li><code>@BeforeMethod</code>: 在每个测试方法之前执行</li>
+<li><code>@AfterMethod</code>: 在每个测试方法之后执行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeMethod</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Before Method&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterMethod</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;After Method&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="BeforeGroups-AfterGroups"><a href="#BeforeGroups-AfterGroups" class="headerlink" title="@BeforeGroups / @AfterGroups"></a><code>@BeforeGroups</code> / <code>@AfterGroups</code></h5><ul>
+<li><code>@BeforeGroups</code>: 在指定分组的所有测试方法之前执行</li>
+<li><code>@AfterGroups</code>: 在指定分组的所有测试方法之后执行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BeforeGroups(&quot;database&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeDatabaseGroup</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Before database group&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AfterGroups(&quot;database&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterDatabaseGroup</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;After database group&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="参数化测试注解"><a href="#参数化测试注解" class="headerlink" title="参数化测试注解"></a>参数化测试注解</h4><h5 id="Parameters"><a href="#Parameters" class="headerlink" title="@Parameters"></a><code>@Parameters</code></h5><p>从 <code>testng.xml</code> 文件中获取参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Parameters(&#123;&quot;dbhost&quot;, &quot;dbport&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDatabaseConnection</span><span class="params">(String host, String port)</span> &#123;</span><br><span class="line">    <span class="comment">// 使用参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="DataProvider"><a href="#DataProvider" class="headerlink" title="@DataProvider"></a><code>@DataProvider</code></h5><p>提供测试数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DataProvider(name = &quot;userData&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Object[][] provideUserData() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Object</span>[][] &#123;</span><br><span class="line">        &#123;<span class="string">&quot;user1&quot;</span>, <span class="string">&quot;password1&quot;</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;user2&quot;</span>, <span class="string">&quot;password2&quot;</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test(dataProvider = &quot;userData&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testLogin</span><span class="params">(String username, String password)</span> &#123;</span><br><span class="line">    <span class="comment">// 测试代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>常用属性：</strong></p>
+<ul>
+<li><code>name</code>: 数据提供者名称</li>
+<li><code>parallel</code>: 是否并行运行（<code>true</code> / <code>false</code>）</li>
+</ul>
+<hr>
+<h4 id="依赖和分组注解"><a href="#依赖和分组注解" class="headerlink" title="依赖和分组注解"></a>依赖和分组注解</h4><h5 id="Listeners"><a href="#Listeners" class="headerlink" title="@Listeners"></a><code>@Listeners</code></h5><p>定义测试监听器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Listeners(MyTestListener.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestClass</span> &#123;</span><br><span class="line">    <span class="comment">// 测试类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Factory"><a href="#Factory" class="headerlink" title="@Factory"></a><code>@Factory</code></h5><p>标记一个方法为工厂方法，用于动态创建测试实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Factory</span></span><br><span class="line"><span class="keyword">public</span> Object[] createInstances() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Object</span>[] &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">TestClass</span>(<span class="number">1</span>),</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">TestClass</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="五、其他实用注解"><a href="#五、其他实用注解" class="headerlink" title="五、其他实用注解"></a>五、其他实用注解</h4><h5 id="Ignore-Test-enabled-false"><a href="#Ignore-Test-enabled-false" class="headerlink" title="@Ignore / @Test(enabled=false)"></a><code>@Ignore</code> / <code>@Test(enabled=false)</code></h5><p>跳过测试。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Ignore</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">skippedTest</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 这个测试会被跳过</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test(enabled = false)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">disabledTest</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 这个测试会被禁用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="NoInjection"><a href="#NoInjection" class="headerlink" title="@NoInjection"></a><code>@NoInjection</code></h5><p>防止 TestNG 自动注入参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testNoInjection</span><span class="params">(<span class="meta">@NoInjection</span> String param)</span> &#123;</span><br><span class="line">    <span class="comment">// param 不会被自动注入</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="执行顺序示例"><a href="#执行顺序示例" class="headerlink" title="执行顺序示例"></a>执行顺序示例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AnnotationOrderExample</span> &#123;</span><br><span class="line">    <span class="meta">@BeforeSuite</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeSuite</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Before Suite&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeTest</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeTest</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Before Test&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeClass</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Before Class&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeMethod</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">beforeMethod</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Before Method&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Test 1&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;Test 2&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterMethod</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterMethod</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;After Method&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterClass</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterClass</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;After Class&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterTest</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterTest</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;After Test&quot;</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterSuite</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterSuite</span><span class="params">()</span> &#123; System.out.println(<span class="string">&quot;After Suite&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="注解执行顺序总结"><a href="#注解执行顺序总结" class="headerlink" title="注解执行顺序总结"></a>注解执行顺序总结</h4><ol>
+<li><code>@BeforeSuite</code>  </li>
+<li><code>@BeforeTest</code>  </li>
+<li><code>@BeforeClass</code>  </li>
+<li><code>@BeforeMethod</code>  </li>
+<li><code>@Test</code>  </li>
+<li><code>@AfterMethod</code>  </li>
+<li><code>@AfterClass</code>  </li>
+<li><code>@AfterTest</code>  </li>
+<li><code>@AfterSuite</code></li>
+</ol>
+<h3 id="suite-xml-语法以及与注解的交互详解"><a href="#suite-xml-语法以及与注解的交互详解" class="headerlink" title="suite.xml 语法以及与注解的交互详解"></a>suite.xml 语法以及与注解的交互详解</h3><p>TestNG 提供了一种结构化的配置方式——通过 <code>testng.xml</code>（也称 <code>suite.xml</code>）文件来定义测试套件的执行策略。这个 XML 配置文件与 TestNG 的注解紧密协作，形成灵活而强大的测试执行流程。</p>
+<hr>
+<h4 id="testng-xml-基础语法结构"><a href="#testng-xml-基础语法结构" class="headerlink" title="testng.xml 基础语法结构"></a>testng.xml 基础语法结构</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">suite</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;https://testng.org/testng-1.0.dtd&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">suite</span> <span class="attr">name</span>=<span class="string">&quot;SuiteName&quot;</span> <span class="attr">parallel</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">&quot;TestName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parameter</span> <span class="attr">name</span>=<span class="string">&quot;param1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;value1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">classes</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">&quot;com.example.TestClass&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">classes</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">suite</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="关键结构说明："><a href="#关键结构说明：" class="headerlink" title="关键结构说明："></a>关键结构说明：</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;suite&gt;</code></td>
+<td>表示一个测试套件，可以包含多个 <code>&lt;test&gt;</code>。支持并发设置，作用于全局测试环境。</td>
+</tr>
+<tr>
+<td><code>&lt;test&gt;</code></td>
+<td>表示一个测试块，通常对应一个模块或功能组，内部可包含多个类或方法。</td>
+</tr>
+<tr>
+<td><code>&lt;parameter&gt;</code></td>
+<td>用于为测试类或测试方法注入参数，与 <code>@Parameters</code> 注解配合使用。</td>
+</tr>
+<tr>
+<td><code>&lt;classes&gt;</code></td>
+<td>用于指定当前 <code>&lt;test&gt;</code> 包含的测试类。</td>
+</tr>
+<tr>
+<td><code>&lt;class&gt;</code></td>
+<td>指定一个测试类的完全限定名。</td>
+</tr>
+<tr>
+<td><code>&lt;methods&gt;</code></td>
+<td>精确指定要运行的测试方法（或排除某些方法）。</td>
+</tr>
+<tr>
+<td><code>&lt;groups&gt;</code></td>
+<td>控制分组执行行为，配合 <code>@Test(groups = &quot;...&quot;)</code> 使用。</td>
+</tr>
+<tr>
+<td><code>&lt;listeners&gt;</code></td>
+<td>注册监听器类，支持日志、报告、自定义行为的扩展。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id="testng-xml-与注解的详细交互"><a href="#testng-xml-与注解的详细交互" class="headerlink" title="testng.xml 与注解的详细交互"></a>testng.xml 与注解的详细交互</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>XML 标签</th>
+<th>关联注解</th>
+<th>作用范围</th>
+<th>触发时机</th>
+<th>推荐用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;suite&gt;</code></td>
+<td><code>@BeforeSuite</code>, <code>@AfterSuite</code></td>
+<td>整个 XML 执行生命周期（全局初始化与清理）</td>
+<td>开始和结束时各执行一次</td>
+<td>数据库连接池创建、日志系统初始化、环境配置等全局资源处理</td>
+</tr>
+<tr>
+<td><code>&lt;test&gt;</code></td>
+<td><code>@BeforeTest</code>, <code>@AfterTest</code></td>
+<td>每个 <code>&lt;test&gt;</code> 区块（模块级）</td>
+<td>每个 <code>&lt;test&gt;</code> 标签开始/结束前后</td>
+<td>针对特定模块做准备，比如初始化模块配置、API Token 等</td>
+</tr>
+<tr>
+<td><code>&lt;class&gt;</code></td>
+<td><code>@BeforeClass</code>, <code>@AfterClass</code></td>
+<td>每个测试类</td>
+<td>测试类中第一个方法执行前 / 全部方法执行后</td>
+<td>类级别的资源准备，如启动/关闭浏览器、创建 HTTP 客户端</td>
+</tr>
+<tr>
+<td><code>&lt;methods&gt;</code></td>
+<td><code>@BeforeMethod</code>, <code>@AfterMethod</code></td>
+<td>每个测试方法</td>
+<td>每个方法前后各执行一次</td>
+<td>用于数据初始化、Mock、资源释放等方法级场景</td>
+</tr>
+<tr>
+<td><code>&lt;groups&gt;</code></td>
+<td><code>@Test(groups = &quot;...&quot;)</code>, <code>@BeforeGroups</code>, <code>@AfterGroups</code></td>
+<td>分组测试方法</td>
+<td>分组内所有方法执行前 / 后</td>
+<td>控制特定类别测试初始化，例如 database、ui、api 分组资源</td>
+</tr>
+<tr>
+<td><code>&lt;parameter&gt;</code></td>
+<td><code>@Parameters</code></td>
+<td>方法参数注入</td>
+<td>方法执行时注入</td>
+<td>用于传递外部配置，如用户名、密码、URL、版本号等</td>
+</tr>
+<tr>
+<td><code>&lt;listeners&gt;</code></td>
+<td><code>@Listeners</code>（类注解替代）</td>
+<td>整个测试执行过程</td>
+<td>初始化时注册</td>
+<td>实现日志收集、截图、失败重试、报告生成等钩子行为</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id="参数注入机制详解（-Parameters-与-）"><a href="#参数注入机制详解（-Parameters-与-）" class="headerlink" title="参数注入机制详解（@Parameters 与 ）"></a>参数注入机制详解（@Parameters 与 <parameter>）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginTest</span> &#123;</span><br><span class="line">    <span class="meta">@Parameters(&#123;&quot;username&quot;, &quot;password&quot;&#125;)</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">login</span><span class="params">(String user, String pass)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Login with &quot;</span> + user + <span class="string">&quot;/&quot;</span> + pass);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应 XML 配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">&quot;LoginTest&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">parameter</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;admin&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">parameter</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">classes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">&quot;com.example.LoginTest&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">classes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="分组执行机制详解（-Test-groups-与-）"><a href="#分组执行机制详解（-Test-groups-与-）" class="headerlink" title="分组执行机制详解（@Test(groups) 与 ）"></a>分组执行机制详解（@Test(groups) 与 <groups>）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test(groups = &quot;smoke&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testLogin</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test(groups = &quot;regression&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testProfileUpdate</span><span class="params">()</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>XML 控制只运行 smoke 分组：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groups</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">run</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">&quot;smoke&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">run</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">groups</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="方法级别控制：include-exclude-amp-priority"><a href="#方法级别控制：include-exclude-amp-priority" class="headerlink" title="方法级别控制：include/exclude &amp; priority"></a>方法级别控制：include/exclude &amp; priority</h4><p>XML 精确控制方法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">methods</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">name</span>=<span class="string">&quot;testLogin&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exclude</span> <span class="attr">name</span>=<span class="string">&quot;testLogout&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">methods</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注解设置优先级与依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test(priority = 1)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test(priority = 2, dependsOnMethods = &#123;&quot;init&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">submit</span><span class="params">()</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="并发执行配置（并行测试）"><a href="#并发执行配置（并行测试）" class="headerlink" title="并发执行配置（并行测试）"></a>并发执行配置（并行测试）</h4><p>通过 XML 的 <code>&lt;suite&gt;</code> 标签启用并发：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">suite</span> <span class="attr">name</span>=<span class="string">&quot;ParallelTestSuite&quot;</span> <span class="attr">parallel</span>=<span class="string">&quot;classes&quot;</span> <span class="attr">thread-count</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>parallel 类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tests</code></td>
+<td>并行执行 <code>&lt;test&gt;</code> 标签块</td>
+</tr>
+<tr>
+<td><code>classes</code></td>
+<td>并行执行测试类</td>
+</tr>
+<tr>
+<td><code>methods</code></td>
+<td>并行执行测试方法</td>
+</tr>
+<tr>
+<td><code>instances</code></td>
+<td>并行执行由 <code>@Factory</code> 创建的实例</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id="监听器注册（-Listeners-与-）"><a href="#监听器注册（-Listeners-与-）" class="headerlink" title="监听器注册（@Listeners 与 ）"></a>监听器注册（@Listeners 与 <listeners>）</h4><p>注解方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Listeners(MyListener.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyTest</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>XML 注册方式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">listeners</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span> <span class="attr">class-name</span>=<span class="string">&quot;com.example.MyListener&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listeners</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="执行顺序总结图（XML-注解）"><a href="#执行顺序总结图（XML-注解）" class="headerlink" title="执行顺序总结图（XML + 注解）"></a>执行顺序总结图（XML + 注解）</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;suite&gt;</span><br><span class="line">  @BeforeSuite</span><br><span class="line">  &lt;test&gt;</span><br><span class="line">    @BeforeTest</span><br><span class="line">    &lt;class&gt;</span><br><span class="line">      @BeforeClass</span><br><span class="line">        @BeforeMethod</span><br><span class="line">          @Test</span><br><span class="line">        @AfterMethod</span><br><span class="line">      @AfterClass</span><br><span class="line">    &lt;/class&gt;</span><br><span class="line">  @AfterTest</span><br><span class="line">&lt;/test&gt;</span><br><span class="line">@AfterSuite</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="总结：何时使用注解，何时用-XML？"><a href="#总结：何时使用注解，何时用-XML？" class="headerlink" title="总结：何时使用注解，何时用 XML？"></a>总结：何时使用注解，何时用 XML？</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>使用注解</th>
+<th>使用 XML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简单方法控制</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>动态参数注入</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>分组控制</td>
+<td>✅ + ✅</td>
+<td>配合使用最强</td>
+</tr>
+<tr>
+<td>并发测试</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>测试套件结构定义</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>灵活选择测试类/方法</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>配置生命周期钩子</td>
+<td>✅</td>
+<td>与 XML 元素作用范围协同</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://blog.pardofelis.icu">源Syuan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://blog.pardofelis.icu/2025/05/13/TestNG/">http://blog.pardofelis.icu/2025/05/13/TestNG/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://blog.pardofelis.icu" target="_blank">Pisland</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%8B%E8%AF%95/">测试</a><a class="post-meta__tags" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a><a class="post-meta__tags" href="/tags/TestNG/">TestNG</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">随便点点</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?share_source=copy_web&amp;vd_source=3898b04e686a400402412b56b0dcec49" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/nevergonna.png" alt="111"/></a><div class="post-qr-code-desc">111</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/05/13/Selenium/" title="Selenium"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/static/Selenium/1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-13</div><div class="info-item-2">Selenium</div></div><div class="info-2"><div class="info-item-1">什么是SeleniumSelenium 是一个功能强大的自动化测试工具，主要用于对 Web 应用程序进行功能测试和回归测试。它支持多种编程语言（如 Python、Java、C# 等）以及主流浏览器（Chrome、Firefox、Edge 等）。通过模拟用户在浏览器中的操作，Selenium 可以帮助开发者快速验证应用程序的功能是否正常。 WebDriverWebDriver 是与浏览器交互的核心组件。每个浏览器都有其对应的WebDriver如谷歌浏览器的ChromeDriver你可以使用系统环境变量12System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);WebDriver driver = new ChromeDriver(); 也可以直接指定WebDriver文件位置12345678910// 1. 指定 ChromeDriver 路径String chromeDriverPath =...</div></div></div></a><a class="pagination-related" href="/2025/05/12/Jmeter/" title="Jmeter"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/jmeter_1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-12</div><div class="info-item-2">Jmeter</div></div><div class="info-2"><div class="info-item-1">软件介绍Apache JMeter 是一款开源的性能测试工具，主要用于测试 Web 应用程序的性能和负载能力。它最初由 Apache Software Foundation 开发，用于测试 Web 应用程序。 优缺点优点1、开源免费     2、跨平台3、支持多协议   4、小巧 缺点1、不支持IP欺骗2、使用Jmeter无法验证JS程序，也也无法验证页面UI，要和Selenuim配合来完成Web测试 </div></div></div></a><a class="pagination-related" href="/2025/05/12/Test-Base/" title="测试基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-12</div><div class="info-item-2">测试基础知识</div></div><div class="info-2"><div class="info-item-1">什么是软件测试使用技术手段 验证软件是否符合需求 测试主流技能功能测试、自动化测试、接口测试、性能测试 常见测试分类按测试阶段划分1234单元测试 #针对源代码进行测试集成测试 #又称接口测试，针对模块间访问地址进行测试系统测试 #对整个系统包括功能、兼容、文档等进行测试验收测试 #主要分为内测、公测，使用不同人群来发现项目缺陷 按代码可见度划分123黑盒测试 #看不见源代码，主要对程序功能进行测试灰盒测试 #看见部分代码，主要对程序接口进行测试白盒测试 #看见全部源代码，主要对程序源代码进行测试 总结1、系统测试和黑盒测试重点是功能测试2、集成测试和灰盒测试又称接口测试3、单元测试和白盒测试对代码进行测试4、自动化测试归属于功能测试5、性能测试、安全测试归属于专项测试 模型质量模型 12345678功能性 #功能满足需求性能效率 #性能满足需求兼容性 #软件能与主流软硬件兼容易用性 #便于使用可靠性 #性能和功能应用可靠信息安全 #信息在存储和传输过程中的安全程度可维护性 #便于维护可移植性...</div></div></div></a><a class="pagination-related" href="/2025/05/13/Xpath/" title="Xpath语法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-13</div><div class="info-item-2">Xpath语法</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">源Syuan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lingyatou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/lingyatou" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/2144168986" target="_blank" title=""><i class="fab fa-bilibili"></i></a><a class="social-icon" href="/img/qqcode.jpg" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2331329306@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><b>--- Bot控制台 ---<br><a target="_blank" rel="noopener" href="http://yunzai.pardofelis.icu:2536/guoba/" title="锅巴控制台" class="anno_content"><font color="#5ea6e5">Yunzai</font></a>&nbsp;|&nbsp;<a target="_blank" rel="noopener" href="http://yunzai.pardofelis.icu:6099/webui/web_login" title="NapCat控制台" class="anno_content"><font color="#5ea6e5">NapCat</font></a></b></center></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFTestNG"><span class="toc-number">1.</span> <span class="toc-text">什么是TestNG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%AA%E7%94%A8%E4%BE%8B"><span class="toc-number">2.1.</span> <span class="toc-text">单个用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%AA%E7%B1%BB%E7%9A%84%E7%94%A8%E4%BE%8B"><span class="toc-number">2.2.</span> <span class="toc-text">单个类的用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TestNG-%E6%B3%A8%E8%A7%A3%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.3.</span> <span class="toc-text">TestNG 注解详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%B5%8B%E8%AF%95%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.1.</span> <span class="toc-text">核心测试注解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Test"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">@Test</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E6%B3%A8%E8%A7%A3%EF%BC%88%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">配置方法注解（生命周期钩子）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BeforeSuite-AfterSuite"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">@BeforeSuite &#x2F; @AfterSuite</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BeforeTest-AfterTest"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">@BeforeTest &#x2F; @AfterTest</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BeforeClass-AfterClass"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">@BeforeClass &#x2F; @AfterClass</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BeforeMethod-AfterMethod"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">@BeforeMethod &#x2F; @AfterMethod</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BeforeGroups-AfterGroups"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">@BeforeGroups &#x2F; @AfterGroups</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.3.</span> <span class="toc-text">参数化测试注解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Parameters"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">@Parameters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DataProvider"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">@DataProvider</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%92%8C%E5%88%86%E7%BB%84%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.4.</span> <span class="toc-text">依赖和分组注解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Listeners"><span class="toc-number">2.3.4.1.</span> <span class="toc-text">@Listeners</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Factory"><span class="toc-number">2.3.4.2.</span> <span class="toc-text">@Factory</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%B6%E4%BB%96%E5%AE%9E%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.5.</span> <span class="toc-text">五、其他实用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Ignore-Test-enabled-false"><span class="toc-number">2.3.5.1.</span> <span class="toc-text">@Ignore &#x2F; @Test(enabled&#x3D;false)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#NoInjection"><span class="toc-number">2.3.5.2.</span> <span class="toc-text">@NoInjection</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.3.6.</span> <span class="toc-text">执行顺序示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%80%BB%E7%BB%93"><span class="toc-number">2.3.7.</span> <span class="toc-text">注解执行顺序总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#suite-xml-%E8%AF%AD%E6%B3%95%E4%BB%A5%E5%8F%8A%E4%B8%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">suite.xml 语法以及与注解的交互详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#testng-xml-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">testng.xml 基础语法结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">关键结构说明：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#testng-xml-%E4%B8%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BA%A4%E4%BA%92"><span class="toc-number">2.4.2.</span> <span class="toc-text">testng.xml 与注解的详细交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E6%B3%A8%E5%85%A5%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3%EF%BC%88-Parameters-%E4%B8%8E-%EF%BC%89"><span class="toc-number">2.4.3.</span> <span class="toc-text">参数注入机制详解（@Parameters 与 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3%EF%BC%88-Test-groups-%E4%B8%8E-%EF%BC%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">分组执行机制详解（@Test(groups) 与 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BA%A7%E5%88%AB%E6%8E%A7%E5%88%B6%EF%BC%9Ainclude-exclude-amp-priority"><span class="toc-number">2.4.5.</span> <span class="toc-text">方法级别控制：include&#x2F;exclude &amp; priority</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E9%85%8D%E7%BD%AE%EF%BC%88%E5%B9%B6%E8%A1%8C%E6%B5%8B%E8%AF%95%EF%BC%89"><span class="toc-number">2.4.6.</span> <span class="toc-text">并发执行配置（并行测试）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E5%99%A8%E6%B3%A8%E5%86%8C%EF%BC%88-Listeners-%E4%B8%8E-%EF%BC%89"><span class="toc-number">2.4.7.</span> <span class="toc-text">监听器注册（@Listeners 与 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%80%BB%E7%BB%93%E5%9B%BE%EF%BC%88XML-%E6%B3%A8%E8%A7%A3%EF%BC%89"><span class="toc-number">2.4.8.</span> <span class="toc-text">执行顺序总结图（XML + 注解）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%EF%BC%8C%E4%BD%95%E6%97%B6%E7%94%A8-XML%EF%BC%9F"><span class="toc-number">2.4.9.</span> <span class="toc-text">总结：何时使用注解，何时用 XML？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/13/TestNG/" title="TestNG">TestNG</a><time datetime="2025-05-13T15:34:07.000Z" title="发表于 2025-05-13 23:34:07">2025-05-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/13/Xpath/" title="Xpath语法">Xpath语法</a><time datetime="2025-05-13T12:59:56.000Z" title="发表于 2025-05-13 20:59:56">2025-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/13/Selenium/" title="Selenium"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/static/Selenium/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Selenium"/></a><div class="content"><a class="title" href="/2025/05/13/Selenium/" title="Selenium">Selenium</a><time datetime="2025-05-13T10:24:55.000Z" title="发表于 2025-05-13 18:24:55">2025-05-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/12/Test-Base/" title="测试基础知识">测试基础知识</a><time datetime="2025-05-12T06:37:56.000Z" title="发表于 2025-05-12 14:37:56">2025-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/12/Jmeter/" title="Jmeter"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/post/jmeter_1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jmeter"/></a><div class="content"><a class="title" href="/2025/05/12/Jmeter/" title="Jmeter">Jmeter</a><time datetime="2025-05-12T04:29:55.000Z" title="发表于 2025-05-12 12:29:55">2025-05-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By 源Syuan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>桂ICP备2025055198</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="日间和夜间模式切换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"><span id="percent">0<span>%</span></span></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer data-pjax src="/js/cat.js"></script><script defer data-pjax src="/js/readPercent.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script src="/js/sun_moon.js" async></script><script async src="/js/title.js"></script><script defer src="/js/fomal.js"></script><script async src="/js/fps.js"></script><div class="aplayer no-destroy" data-id="13544074526" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" mini="true"> </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://blog.pardofelis.icu/categories/插件/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 Bot插件 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://blog.pardofelis.icu/categories/游戏日常/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 简单的游戏日常 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://blog.pardofelis.icu/categories/随便玩玩/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 有趣~ (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://blog.pardofelis.icu/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 点亮技能树 (5)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="http://blog.pardofelis.icu/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style> <script data-pjax>if(document.getElementById('recent-posts') && location.pathname =='/'){
+    
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/pardofelis/pardofelis_1.png" alt="/img/pardofelis/pardofelis_1.png"/></div><div class="blog-slider__content"><span class="blog-slider__code">2025-05-09</span><a class="blog-slider__title" href="2025/05/09/hello-world/">导览页</a><div class="blog-slider__text">导览页</div><a class="blog-slider__button" href="2025/05/09/hello-world/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载swiper')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.js"></script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper@0.18/swiper/swiperindex.js"></script>
+<style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v7.3.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v5.3.5" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/" style="margin-inline:5px" data-title="该域名已进行ICP备案" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/桂ICP备-2025055198-blue" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/footer.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
