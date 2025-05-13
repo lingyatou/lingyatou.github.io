@@ -4954,7 +4954,7 @@ figure.highlight pre .javascript .function {
   }
 }
 [data-theme="dark"] #web_bg {
-  background: /img/win_dark.jpg;
+  background: /img/win_bai.jpg;
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -6712,7 +6712,7 @@ blockquote.pullquote.right {
   background: rgba(0,0,0,0.6);
 }
 [data-theme="dark"] #web_bg {
-  background: /img/win_dark.jpg;
+  background: /img/win_bai.jpg;
   background-attachment: local;
   background-position: center;
   background-size: cover;
