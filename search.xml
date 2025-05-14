@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Appium</title>
+      <link href="/2025/05/14/Appium/"/>
+      <url>/2025/05/14/Appium/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>Appium</code> 是一个开源的 跨平台移动应用自动化测试工具，支持：<br><code>iOS</code>（基于 XCUITest）<br><code>Android</code>（基于 UIAutomator2/Espresso）<br><code>Windows</code> 桌面应用（WinAppDriver）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> Selenium </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo-plugin</title>
       <link href="/2025/05/14/blog/"/>
       <url>/2025/05/14/blog/</url>
