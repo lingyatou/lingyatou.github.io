@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Linux_Basic</title>
+      <link href="/2025/05/16/Linux-Basic/"/>
+      <url>/2025/05/16/Linux-Basic/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Linux目录结构以及文件路径目录"><a href="#Linux目录结构以及文件路径目录" class="headerlink" title="Linux目录结构以及文件路径目录"></a>Linux目录结构以及文件路径目录</h3><p>Linux的目录是<code>树形结构</code>，与Windows操作系统的不同之处在于，Linux只有一个根目录，且没有类似Windows的C盘这种“盘符”的概念<br>在Linux的文件路径描述中，层次分离一般以斜杠<code>/</code>，而Windows一般以反斜杠<code>\</code><br>以下是Linux根目录以及其下各种文件夹的意义：<br><code>/</code>：根目录。一般根目录下只存放目录，在1inux下有且只有一个根目录，所有的东西都是从这里开<br>始：<br><code>/root</code>：系统管理员root的目录：<br><code>/usr</code>：系统应用程序存放的目录，一般安装的软件在该目录下：<br><code>/etc</code>：系统配置文件存放的目录，不建议在此目录下存放可执行文件：<br><code>/home</code>：系统普通用户的家目录，其下为用户<code>username</code>的目录<code>/home/username/</code><br><code>/var</code>：放置系统执行过程中经常变化的文件，例如日志文件。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux Commands</title>
+      <link href="/2025/05/16/Commands/"/>
+      <url>/2025/05/16/Commands/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Linux命令通用格式"><a href="#Linux命令通用格式" class="headerlink" title="Linux命令通用格式"></a>Linux命令通用格式</h2><p>command [-option] [parameter]<br><code>command</code>: 命令本体，如目录下文件夹/文件列举，命令<code>ls</code><br><code>option</code>：[可选，非必填] 命令的一些选项，用于控制命令的执行细节<br><code>parameter</code>: [可选，非必填] 命令的参数，多用于命令的指向目标</p><h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h2><p>以<code>平铺形式</code>展示某个目录下一级的文件和文件夹名称<br>无选项无参数： 只会列出当前目录下所有的文件夹名称和文件名称<br>ls [-a -l -h] [Linux路径]<br>-a（—all）:<br>    显示所有文件和目录，包括以点（.）开头的隐藏文件（如.bashrc、.config等）。<br>    默认情况下，ls会忽略这些隐藏文件。<br>-l（long format）：<br>    以长格式显示详细信息，包括：文件权限（如 -rw-r—r—）,硬链接数,所有者（用户）和所属组,文件大小（默认以字节为单位）,最后修改时间,文件名或目录名<br>-h（—human-readable）：<br>    与-l结合使用时，将文件大小转换为易读的单位（如K、M、G），而不是默认的字节。例如，显示1.2K而不是1234<br>-t：按修改时间排序（最近优先）。<br>-r：反向排序。<br>-d：仅显示目录本身，而非其内容（常用于配合-l查看目录属性）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Appium</title>
       <link href="/2025/05/14/Appium/"/>
       <url>/2025/05/14/Appium/</url>
