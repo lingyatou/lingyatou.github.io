@@ -275,6 +275,31 @@
     
     
     <entry>
+      <title>短视频APP（抖音）进行测试</title>
+      <link href="/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E7%9F%AD%E8%A7%86%E9%A2%91APP%EF%BC%88%E6%8A%96%E9%9F%B3%EF%BC%89%E6%B5%8B%E8%AF%95/"/>
+      <url>/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E7%9F%AD%E8%A7%86%E9%A2%91APP%EF%BC%88%E6%8A%96%E9%9F%B3%EF%BC%89%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何对短视频APP（抖音）进行测试"><a href="#如何对短视频APP（抖音）进行测试" class="headerlink" title="如何对短视频APP（抖音）进行测试"></a>如何对短视频APP（抖音）进行测试</h2><ol><li>功能测试：<ul><li>刷抖音<ul><li>feed流交互</li><li>视频清晰度</li><li>点赞（点赞数）、双击点赞</li><li>视频暂停/播放测试</li><li>评论（评论数/查看评论/发表评论）</li><li>分享转发</li><li>同款音乐</li><li>用户个人主页</li><li>搜索测试（热搜/话题功能）</li><li>视频信息（标题/描述/音乐/标签）</li></ul></li><li>拍抖音<ul><li>调起摄像头</li><li>视频拍摄/本地视频</li><li>视频剪辑功能测试</li><li>选择音乐功能测试</li><li>道具/表情/滤镜</li><li>发布短视频测试</li></ul></li><li>商业化<ul><li>广告植入（跳过广告）</li><li>抖音商城</li></ul></li></ul></li><li>性能测试：<ul><li>视频质量（码流/帧率/不卡顿）</li><li>网络测试（wifi、5G/4G/3G、弱网、断网）</li><li>服务器负载测试</li><li>服务器压力测试</li><li>长时间运行<ul><li>耗电量</li><li>内存是否泄漏</li><li>CPU状况</li></ul></li></ul></li><li>安全测试：<ul><li>视频链接加密</li><li>视频防止去水印</li><li>视频反爬</li></ul></li><li>异常测试：<ul><li>弱网/断网等异常测试</li><li>码率切换测试</li><li>破坏性点击（疯狂点击点赞/取消点赞按钮）</li><li>切换前后台</li></ul></li><li>兼容性测试<ul><li>移动端系统兼容性（Android、iOS）</li><li>应用权限测试</li></ul></li><li>安装/卸载测试</li></ol><hr><p>引用自<a href="https://www.nowcoder.com/feed/main/detail/3fa3c10ab6d2433f96ef4775ac50934d?sourceSSR=search">牛客网动态</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 测试八股文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>聊天系统测试</title>
       <link href="/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E8%81%8A%E5%A4%A9%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/"/>
       <url>/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E8%81%8A%E5%A4%A9%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95/</url>
@@ -330,31 +355,6 @@
       <url>/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E9%95%BF%E8%A7%86%E9%A2%91APP%EF%BC%88%E4%BC%98%E9%85%B7%EF%BC%89%E6%B5%8B%E8%AF%95/</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何对长视频APP（优酷）进行测试"><a href="#如何对长视频APP（优酷）进行测试" class="headerlink" title="如何对长视频APP（优酷）进行测试"></a>如何对长视频APP（优酷）进行测试</h2><ol><li>功能测试：<ul><li>视频能够正常播放</li><li>会员特权（购买、有效期、行使特权）</li><li>播放组件（点播播放器、直播播放器、缓存视频播放器）<ul><li>视频清晰度转换（手动、自动）</li><li>全屏/缩放；横屏/竖屏；锁屏</li><li>播放/暂停/下一集</li><li>进度条（快进、快退、锚点播放）</li><li>亮度</li><li>声音</li><li>弹幕</li><li>缓存</li><li>投屏</li><li>选集</li><li>倍速播放</li><li>断点续播</li><li>视频水印</li><li>返回键</li><li>分享/收藏（看单）</li><li>投屏</li><li>睡眠模式</li></ul></li><li>商业化（广告）<ul><li>片前广告/片中广告/片尾广告</li><li>暂停广告弹窗</li><li>VIP跳过广告</li><li>广告倒计时自动关闭</li></ul></li></ul></li><li>性能测试：<ul><li>清晰度测试（4K、蓝光、超清、高清、标清、畅请），测试固定码率播放以及切换码率播放</li><li>负载测试（最大同时拉流数）</li><li>网络测试（wifi、5G/4G/3G、弱网、断网）</li><li>首屏加载时间</li><li>长时间运行<ul><li>耗电量</li><li>内存是否有泄漏</li><li>CPU状况</li><li>是否有丢帧</li></ul></li></ul></li><li>安全测试：<ul><li>视频流地址加密</li><li>视频水印</li><li>会员接口不对外暴露</li><li>防止去广告脚本攻击</li><li>缓存视频加密</li></ul></li><li>异常测试：<ul><li>弱网/断网等异常测试</li><li>码率切换测试</li><li>频繁切换前后台</li></ul></li><li>兼容性测试<ul><li>移动端兼容性（Android、iOS）</li><li>PC端兼容性（Mac/Windows）</li><li>浏览器兼容性（IE/Chrome/Firefox/Safari）</li><li>TV端（电视盒子、投影仪等）</li></ul></li></ol><hr><p>引用自<a href="https://www.nowcoder.com/feed/main/detail/3fa3c10ab6d2433f96ef4775ac50934d?sourceSSR=search">牛客网动态</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 测试八股文 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>短视频APP（抖音）进行测试</title>
-      <link href="/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E7%9F%AD%E8%A7%86%E9%A2%91APP%EF%BC%88%E6%8A%96%E9%9F%B3%EF%BC%89%E6%B5%8B%E8%AF%95/"/>
-      <url>/2025/05/17/%E5%85%AB%E8%82%A1%E6%96%87/%E7%9F%AD%E8%A7%86%E9%A2%91APP%EF%BC%88%E6%8A%96%E9%9F%B3%EF%BC%89%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何对短视频APP（抖音）进行测试"><a href="#如何对短视频APP（抖音）进行测试" class="headerlink" title="如何对短视频APP（抖音）进行测试"></a>如何对短视频APP（抖音）进行测试</h2><ol><li>功能测试：<ul><li>刷抖音<ul><li>feed流交互</li><li>视频清晰度</li><li>点赞（点赞数）、双击点赞</li><li>视频暂停/播放测试</li><li>评论（评论数/查看评论/发表评论）</li><li>分享转发</li><li>同款音乐</li><li>用户个人主页</li><li>搜索测试（热搜/话题功能）</li><li>视频信息（标题/描述/音乐/标签）</li></ul></li><li>拍抖音<ul><li>调起摄像头</li><li>视频拍摄/本地视频</li><li>视频剪辑功能测试</li><li>选择音乐功能测试</li><li>道具/表情/滤镜</li><li>发布短视频测试</li></ul></li><li>商业化<ul><li>广告植入（跳过广告）</li><li>抖音商城</li></ul></li></ul></li><li>性能测试：<ul><li>视频质量（码流/帧率/不卡顿）</li><li>网络测试（wifi、5G/4G/3G、弱网、断网）</li><li>服务器负载测试</li><li>服务器压力测试</li><li>长时间运行<ul><li>耗电量</li><li>内存是否泄漏</li><li>CPU状况</li></ul></li></ul></li><li>安全测试：<ul><li>视频链接加密</li><li>视频防止去水印</li><li>视频反爬</li></ul></li><li>异常测试：<ul><li>弱网/断网等异常测试</li><li>码率切换测试</li><li>破坏性点击（疯狂点击点赞/取消点赞按钮）</li><li>切换前后台</li></ul></li><li>兼容性测试<ul><li>移动端系统兼容性（Android、iOS）</li><li>应用权限测试</li></ul></li><li>安装/卸载测试</li></ol><hr><p>引用自<a href="https://www.nowcoder.com/feed/main/detail/3fa3c10ab6d2433f96ef4775ac50934d?sourceSSR=search">牛客网动态</a></p>]]></content>
       
       
       <categories>
