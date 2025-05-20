@@ -5042,6 +5042,9 @@ figure.highlight pre .javascript .function {
     display: none;
   }
 }
+.debug-config {
+  content: '/img/mob_dark.jpg';
+}
 [data-theme="dark"] #web_bg {
   background: /img/win_bai.jpg;
   background-attachment: local;
@@ -5051,14 +5054,14 @@ figure.highlight pre .javascript .function {
 }
 @media screen and (max-width: 768px) {
   #web_bg {
-    background: /img/mob_bai.jpg !important;
+    background: url("/img/mob_bai.jpg") !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
   [data-theme="dark"] #web_bg {
-    background: /img/mob_dark.jpg !important;
+    background: url("/img/mob_dark.jpg") !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
@@ -6800,6 +6803,9 @@ blockquote.pullquote.right {
   display: none;
   background: rgba(0,0,0,0.6);
 }
+.debug-config {
+  content: '/img/mob_dark.jpg';
+}
 [data-theme="dark"] #web_bg {
   background: /img/win_bai.jpg;
   background-attachment: local;
@@ -6809,14 +6815,14 @@ blockquote.pullquote.right {
 }
 @media screen and (max-width: 768px) {
   #web_bg {
-    background: /img/mob_bai.jpg !important;
+    background: url("/img/mob_bai.jpg") !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
   [data-theme="dark"] #web_bg {
-    background: /img/mob_dark.jpg !important;
+    background: url("/img/mob_dark.jpg") !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;

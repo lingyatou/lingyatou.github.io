@@ -422,17 +422,6 @@ body::-webkit-scrollbar {
     background-size: cover;
 }
 
-/* 移动端背景适配 */
-@media (max-width: 768px) {
-    #web_bg {
-        background: var(--mobile-day-bg) !important;
-    }
-
-    [data-theme="dark"] #web_bg {
-        background: var(--mobile-night-bg) !important;
-    }
-}
-
 /* 波浪css */
 .main-hero-waves-area {
     width: 100%;
