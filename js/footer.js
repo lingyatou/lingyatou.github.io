@@ -2,8 +2,8 @@ var now = new Date();
 function createtime() {
     now.setTime(now.getTime() + 1000);
 
-    // 第一个功能：从2025年5月9日20:46开始计算运行时间
-    var siteLaunchDate = new Date("05/09/2025 20:46:00");
+    // 第一个功能：从2025年5月8日20:37开始计算运行时间
+    var siteLaunchDate = new Date("05/08/2025 20:37:00");
     var timeRunning = (now - siteLaunchDate) / 1000;
     var daysRunning = Math.floor(timeRunning / 86400);
     var hoursRunning = Math.floor((timeRunning % 86400) / 3600);
