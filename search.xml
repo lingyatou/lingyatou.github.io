@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>测试目录</title>
+      <link href="/2025/05/22/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95/"/>
+      <url>/2025/05/22/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件测试所需要的知识包括"><a href="#软件测试所需要的知识包括" class="headerlink" title="软件测试所需要的知识包括"></a>软件测试所需要的知识包括</h2><p><a href="/tags/测试基础"><code>测试基础知识</code></a><br><a href="/tags/测试框架"><code>测试框架知识</code></a><br><a href="/tags/测试软件"><code>测试软件知识</code></a><br><a href="/tags/Linux"><code>Linux知识</code></a><br><a href="/tags/网络知识"><code>网络知识</code></a><br><a href="/tags/数据库"><code>数据库知识</code></a><br><a href="/tags/编程语言"><code>测试编程语言</code></a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>plan</title>
       <link href="/2025/05/20/plan/"/>
       <url>/2025/05/20/plan/</url>
@@ -58,9 +77,9 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> 面试准备 </tag>
+            
+            <tag> 测试 </tag>
             
         </tags>
       
@@ -160,11 +179,9 @@
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> 测试框架 </tag>
             
-            <tag> 框架 </tag>
-            
-            <tag> Selenium </tag>
+            <tag> Appium </tag>
             
         </tags>
       
@@ -216,9 +233,7 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
-            <tag> 框架 </tag>
+            <tag> 测试框架 </tag>
             
             <tag> TestNG </tag>
             
@@ -245,7 +260,7 @@
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> 测试框架 </tag>
             
             <tag> Selenium </tag>
             
@@ -272,9 +287,7 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
-            <tag> 框架 </tag>
+            <tag> 测试框架 </tag>
             
             <tag> Selenium </tag>
             
@@ -301,7 +314,7 @@
       
         <tags>
             
-            <tag> 测试 </tag>
+            <tag> 测试基础 </tag>
             
         </tags>
       
@@ -326,9 +339,7 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
-            <tag> 软件 </tag>
+            <tag> 测试软件 </tag>
             
         </tags>
       
@@ -408,7 +419,7 @@
     
     
     <entry>
-      <title>导览页</title>
+      <title>开发手册</title>
       <link href="/2025/05/09/hello-world/"/>
       <url>/2025/05/09/hello-world/</url>
       
