@@ -9,6 +9,9 @@ $.ajax({
     dataType: 'jsonp',
     success: function (res) {
         ipLoacation = res;
+    },
+    error: function (err) {
+        console.error('IP定位请求失败:', err);
     }
 })
 function getDistance(e1, n1, e2, n2) {
