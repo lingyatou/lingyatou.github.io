@@ -9,7 +9,7 @@ $.ajax({
     dataType: 'jsonp',
     success: function (res) {
         ipLoacation = res;
-        
+        console.log('位置API调用状态码' + res.status)
     }
 })
 function getDistance(e1, n1, e2, n2) {
