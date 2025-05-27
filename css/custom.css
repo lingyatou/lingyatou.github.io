@@ -689,6 +689,5 @@ h6::before {
 }
 
 [data-theme="dark"] #welcome-info {
-    /* background: #928787; */
-    background: linear-gradient(45deg, #b9f4f3, #e3fbf9);
+    background: #090909;
 }
