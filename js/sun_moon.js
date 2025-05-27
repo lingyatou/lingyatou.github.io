@@ -46,8 +46,8 @@ function switchNightMode() {
             new Vue({
                 data: function () {
                     this.$notify({
-                        title: "关灯啦🌙",
-                        message: "当前已成功切换至夜间模式！",
+                        title: "🌙",
+                        message: "当前已成功切换夜晚！",
                         position: 'top-left',
                         offset: 50,
                         showClose: true,
@@ -73,8 +73,8 @@ function switchNightMode() {
             new Vue({
                 data: function () {
                     this.$notify({
-                        title: "开灯啦🌞",
-                        message: "当前已成功切换至白天模式！",
+                        title: "🌞",
+                        message: "当前已成功切换黎明！",
                         position: 'top-left',
                         offset: 50,
                         showClose: true,
