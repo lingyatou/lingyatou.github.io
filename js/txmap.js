@@ -9,7 +9,7 @@ $.ajax({
     dataType: 'jsonp',
     success: function (res) {
         ipLoacation = res;
-        console.log('res' + res);
+        alert('res' + res.status);
     }
 })
 function getDistance(e1, n1, e2, n2) {
