@@ -34,7 +34,7 @@ if (document.body.clientWidth > 992) {
                 borderRadius: 5 + 'px',
                 right: 60 + 'px',
                 // 这里可以换为你喜欢的图片，例如我就换为了雪人，但是要抠图
-                nekoImg: "/img/gs_1.webp",
+                nekoImg: "/img/gs.webp",
                 hoverMsg: "咱带你上去",
                 color: "#d7bcb5",
                 during: 500,
