@@ -1,1 +1,50 @@
-var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var t=new Date("05/08/2025 20:37:00"),o=(now-t)/1e3,e=Math.floor(o/86400),n=Math.floor(o%86400/3600),a=Math.floor(o%3600/60),r=Math.floor(o%60),l=(new Date("07/11/2025 00:00:00")-now)/1e3,i=Math.floor(l/86400),d=Math.floor(l%86400/3600),s=Math.floor(l%3600/60),p=Math.floor(l%60),w=now.getHours(),S=w>=6&&w<18?"此时已是白昼 ☀️":"此时已是黑夜 🌙",f=`\n        <div style="font-size:13px;font-weight:bold">\n            <span style="color: #4CAF50;">⏱️ 本站运行时间: ${e}天 ${n=String(n).padStart(2,"0")}时 ${a=String(a).padStart(2,"0")}分 ${r=String(r).padStart(2,"0")}秒</span><br>\n            <span style="color: #2196F3;">⏳ 距离帕朵菲莉丝生日还有: ${i}天 ${d=String(d).padStart(2,"0")}时 ${s=String(s).padStart(2,"0")}分 ${p=String(p).padStart(2,"0")}秒</span><br>\n            <span style="color: ${w>=6&&w<18?"#FF9800":"#673AB7"};">${S}</span>\n        </div>\n    `;document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=f)}setInterval(createtime,1e3);
+var now = new Date();
+function createtime() {
+    now.setTime(now.getTime() + 1000);
+
+    // 第一个功能：从2025年5月8日20:37开始计算运行时间
+    var siteLaunchDate = new Date("05/08/2025 20:37:00");
+    var timeRunning = (now - siteLaunchDate) / 1000;
+    var daysRunning = Math.floor(timeRunning / 86400);
+    var hoursRunning = Math.floor((timeRunning % 86400) / 3600);
+    var minutesRunning = Math.floor((timeRunning % 3600) / 60);
+    var secondsRunning = Math.floor(timeRunning % 60);
+
+    // 第二个功能：计算距离7月11日还有多久
+    var targetDate = new Date("07/11/2025 00:00:00");
+    var timeRemaining = (targetDate - now) / 1000;
+    var daysRemaining = Math.floor(timeRemaining / 86400);
+    var hoursRemaining = Math.floor((timeRemaining % 86400) / 3600);
+    var minutesRemaining = Math.floor((timeRemaining % 3600) / 60);
+    var secondsRemaining = Math.floor(timeRemaining % 60);
+
+    // 第三个功能：白天/黑夜显示
+    var currentHour = now.getHours();
+    var dayNightText = (currentHour >= 6 && currentHour < 18) ?
+        "此时已是白昼 ☀️" : "此时已是黑夜 🌙";
+
+    // 格式化所有时间显示，补零
+    hoursRunning = String(hoursRunning).padStart(2, '0');
+    minutesRunning = String(minutesRunning).padStart(2, '0');
+    secondsRunning = String(secondsRunning).padStart(2, '0');
+    hoursRemaining = String(hoursRemaining).padStart(2, '0');
+    minutesRemaining = String(minutesRemaining).padStart(2, '0');
+    secondsRemaining = String(secondsRemaining).padStart(2, '0');
+
+    // 组合显示文本
+    var displayText = `
+        <div style="font-size:13px;font-weight:bold">
+            <span style="color: #4CAF50;">⏱️ 本站运行时间: ${daysRunning}天 ${hoursRunning}时 ${minutesRunning}分 ${secondsRunning}秒</span><br>
+            <span style="color: #2196F3;">⏳ 距离帕朵菲莉丝生日还有: ${daysRemaining}天 ${hoursRemaining}时 ${minutesRemaining}分 ${secondsRemaining}秒</span><br>
+            <span style="color: ${currentHour >= 6 && currentHour < 18 ? '#FF9800' : '#673AB7'};">${dayNightText}</span>
+        </div>
+    `;
+
+    // 更新到页面
+    if (document.getElementById("workboard")) {
+        document.getElementById("workboard").innerHTML = displayText;
+    }
+}
+
+// 每秒更新一次
+setInterval(createtime, 1000);
