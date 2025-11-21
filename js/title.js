@@ -1,0 +1,1 @@
+var titleTime,OriginTitile=document.title;document.addEventListener("visibilitychange",(function(){document.hidden?(document.title="快回来快回来",clearTimeout(titleTime)):(document.title="走，进货去",titleTime=setTimeout((function(){document.title=OriginTitile}),2e3))}));
